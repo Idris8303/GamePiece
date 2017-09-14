@@ -1,45 +1,64 @@
-public class GamePiece {
+package com.tiy;
 
-    private Integer positionX;
-    private Integer positionY;
-    private Boolean frozen;
-    private String  color;
+class GamePiece {
+    private int positionX;
+    private int positionY;
+    private boolean frozen;
+    private String color;
     private String name;
 
-    public GamePiece(Integer positionX, Integer positionY, Boolean frozen, String color, String name){
-        this.positionX = positionX;
-        this.positionY = positionY;
-        this.frozen = frozen;
-        this.color = color;
-        this.name = name;
 
-}
+    public GamePiece() {
+        this.positionX = 0;
+        this.positionY = 0;
+        this.frozen = false;
 
-    public Integer getPositionX() {
+    }
+
+
+    public int getPositionX() {
         return positionX;
     }
 
-    public Integer getPositionY() {
+    public int getPositionY() {
         return positionY;
     }
 
-    public Boolean getfrozen() {
+    public boolean isFrozen() {
         return frozen;
     }
 
-    public String getColor(){
+    public String getColor() {
         return color;
     }
-    public void setColor(String color){
-        this.color = color;
-    }
-    public String getName(){
+
+    public String getName() {
         return name;
     }
-    public void setName(String name){
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public void setName(String name) {
         this.name = name;
     }
-}
 
+    public void move(int newPositionX, int newPositionY) {
+        if (!this.frozen) {
+            this.positionX = newPositionX;
+            this.positionY = newPositionY;
+        }
+    }
+
+    public void freeze(boolean frozen) {
+        this.frozen = true;
+        System.out.println("frozen");
+    }
+    public void unfreeze(boolean frozen){
+        this.frozen = false;
+        System.out.println("unfreezef");
+    }
+}
 
 
